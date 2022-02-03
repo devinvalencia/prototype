@@ -15,8 +15,8 @@ const Home = () => {
     return ( 
         <div>
             <Form.Group>
-            <Form.Label>Enter Name</Form.Label>
-            <Form.Control size="lg" type="text" placeholder="..." ref={firstName} />
+            <Form.Label style={{color:'white'}}>Enter Name</Form.Label>
+            <Form.Control size="lg" type="text" placeholder="..." ref={firstName}/>
             </Form.Group>
             <br />
             <Button value='test' onClick={ () => handleClick() } variant="primary">Submit</Button>

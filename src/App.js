@@ -1,7 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./Custom Components/Home";
-
+import logo from './logo.svg';
+import backgroundImg from './background.jpg';
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -9,11 +10,15 @@ import Col from "react-bootstrap/Col";
 
 function App() {
   return (
-    <div>
-      <Container fluid="sm" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '50vh', width: '100vw'}}>
+    <div style={{ 
+      backgroundImage: `url(${backgroundImg})`,
+      height: '100vh',
+      backgroundSize: 'cover' 
+    }}>
+      <Container fluid="sm" style={{display: 'flex',  justifyContent:'center', alignItems:'center', alignContent: 'flexStart'}}>
           <Col>
-
-          <Home></Home>
+          <Row><img src={logo} className="App-logo" alt="logo" /></Row>
+          <Row><Home></Home></Row>
           </Col>
       </Container>
     </div>
