@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 function App() {
   return (
     <div>
-      <Container fluid="sm">
+      <Container fluid="sm" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '50vh', width: '100vw'}}>
         <Row>
           <Col><Home></Home></Col>
         </Row>
