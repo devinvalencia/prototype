@@ -14,7 +14,8 @@ function App() {
     <div style={{ 
       backgroundImage: `url(${backgroundImg})`,
       height: '100vh',
-      backgroundSize: 'cover' 
+      backgroundSize: 'cover',
+      overflow: 'hidden' 
     }}>
       <Container fluid="sm" style={{display: 'flex',  justifyContent:'center', alignItems:'center', alignContent: 'flexStart'}}>
           <Col>
