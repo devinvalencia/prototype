@@ -1,12 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Home from "./Custom Components/Home";
+import Home from "./Home";
 import logo from './logo.svg';
 import backgroundImg from './background.jpg';
+import Results from "./Results";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+
+import "react-multi-carousel/lib/styles.css";
+
 
 function App() {
   return (
