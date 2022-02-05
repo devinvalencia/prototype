@@ -2,13 +2,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useRef } from "react";
 
-const Home = () => {
+const Home = ({setTextInput}) => {
   const firstName = useRef(null);
   const [name, setName] = useState("");
 
   // If no value entered, then send alert
   const handleClick = () => {
-    setName(`${firstName.current.value} is a poo poo head`);
+    setTextInput(firstName.current.value);
   };
 
   // Take form value, assign to name

@@ -7,9 +7,20 @@ import backgroundImg from './background.jpg';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useState } from "react";
+import Results from "./Results";
 
 
 function App() {
+const [results, setResults] = useState([
+  {id: 1, name: 'Test1'},
+  {id: 2, name: 'Test2'},
+  {id: 3, name: 'Test3'},
+  {id: 4, name: 'Test4'}
+]);
+
+const [textInput,setTextInput] = useState('');
+
   return (
     <div style={{ 
       backgroundImage: `url(${backgroundImg})`,
@@ -20,9 +31,12 @@ function App() {
       <Container fluid="sm" style={{display: 'flex',  justifyContent:'center', alignItems:'center', alignContent: 'flexStart'}}>
           <Col>
           <Row><img src={logo} className="App-logo" alt="logo" /></Row>
-          <Row><Home></Home></Row>
+          <Row><Home setTextInput={setTextInput}></Home></Row>
+          <Row><Results data={results.filter( (record) => record.id == textInput)}></Results></Row>
           </Col>
       </Container>
+
+
     </div>
   );
 }
