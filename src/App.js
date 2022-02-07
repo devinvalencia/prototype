@@ -7,8 +7,9 @@ import backgroundImg from './background.jpg';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Results from "./Results";
+import MyModal from "./MyModal";
 
 function App() {
 const [results, setResults] = useState([
@@ -19,6 +20,11 @@ const [results, setResults] = useState([
 ]);
 
 const [textInput,setTextInput] = useState('');
+const [modalShow, setModalShow] = useState(true);
+
+useEffect (() => {
+  console.log(modalShow);
+});
 
   return (
     <div style={{ 
@@ -36,6 +42,7 @@ const [textInput,setTextInput] = useState('');
           </Col>
       </Container>
 
+    <MyModal show={modalShow} onHide={() => setModalShow(false)}></MyModal>
     </div>
   );
 }
