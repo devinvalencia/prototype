@@ -19,11 +19,11 @@ const [modalShow, setModalShow] = useState(true);
 const [url, setUrl] = useState('http://localhost:3000/location');
 
 useEffect (() => {
-  console.log(results);
+  console.log(url);
 });
 
 const fetchLocations = useCallback(async () => {
-  const response = await fetch(url && textInput ? `${url}?id=${textInput}` : url);
+  const response = await fetch(`${url}?id=${textInput}`);
   const json = await response.json();
   setResults(json);
 }, [url, textInput]) 
@@ -50,3 +50,6 @@ const fetchLocations = useCallback(async () => {
 }
 
 export default App;
+
+// {results.filter( (record) => record.id === textInput)}
+// FORGOT TO SET URL DUM DUM
