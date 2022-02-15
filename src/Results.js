@@ -9,15 +9,6 @@ import {useState, useCallback } from 'react';
 // Wrap param dynamic, param for array.map is annon func that refs each element in array
 
 const Results = ({ data }) => {
-  const [url, setUrl] = useState('http://localhost:3000/location');
-  const [results, setResults] = useState([]);
-
-  const fetchLocations = useCallback(async () => {
-    const response = await fetch(url);
-    const json = await response.json();
-    setResults(json);
-}, [url]) 
-
   return (
     <div>
       <Container>

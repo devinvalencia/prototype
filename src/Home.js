@@ -2,13 +2,14 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useRef } from "react";
 
-const Home = ({setTextInput}) => {
-  const firstName = useRef(null);
+const Home = ({setTextInput, fetchData}) => {
+  const searchCrit = useRef(null);
   const [name, setName] = useState("");
 
   // If no value entered, then send alert
   const handleClick = () => {
-    setTextInput(firstName.current.value);
+    setTextInput(searchCrit.current.value);
+    fetchData();
   };
 
   // Take form value, assign to name
@@ -16,7 +17,7 @@ const Home = ({setTextInput}) => {
     <div>
       <Form.Group>
         <Form.Label style={{ color: "white" }}>Enter Name</Form.Label>
-        <Form.Control size="lg" type="text" placeholder="..." ref={firstName} />
+        <Form.Control size="lg" type="text" placeholder="..." ref={searchCrit} />
       </Form.Group>
       <br />
       <Button value="test" onClick={() => handleClick()} variant="primary">
