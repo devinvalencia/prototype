@@ -1,13 +1,23 @@
 // Learning Notes
-
 import Button from "react-bootstrap/esm/Button";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
-import Card from 'react-bootstrap/Card'
+import Card from "react-bootstrap/Card";
+import {useState, useCallback } from 'react';
 
 // Wrap param dynamic, param for array.map is annon func that refs each element in array
+
 const Results = ({ data }) => {
+  const [url, setUrl] = useState('http://localhost:3000/location');
+  const [results, setResults] = useState([]);
+
+  const fetchLocations = useCallback(async () => {
+    const response = await fetch(url);
+    const json = await response.json();
+    setResults(json);
+}, [url]) 
+
   return (
     <div>
       <Container>
@@ -19,7 +29,12 @@ const Results = ({ data }) => {
           }}
         >
           {data.map((record) => (
-            <Card style={{ width: "18rem" }} key={record.id}>
+            <Card
+              style={{
+                width: "18rem",
+              }}
+              key={record.id}
+            >
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Card.Title>{record.name}</Card.Title>
