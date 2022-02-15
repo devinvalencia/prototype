@@ -13,18 +13,12 @@ import Results from "./Results";
 import MyModal from "./MyModal";
 
 function App() {
-const [results, setResults] = useState([
-  {id: 1, name: 'Test1'},
-  {id: 2, name: 'Test2'},
-  {id: 3, name: 'Test3'},
-  {id: 4, name: 'Test4'}
-]);
-
+const [results, setResults] = useState([]);
 const [textInput,setTextInput] = useState('');
 const [modalShow, setModalShow] = useState(true);
 
 useEffect (() => {
-  console.log(modalShow);
+  //console.log(modalShow);
 });
 
   return (
