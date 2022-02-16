@@ -1,15 +1,14 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useState, useRef } from "react";
+import { useRef} from "react";
 
-const Home = ({setTextInput, fetchData}) => {
+const Home = ({setUrl, setShowResults }) => {
   const searchCrit = useRef(null);
-  const [name, setName] = useState("");
 
   // If no value entered, then send alert
-  const handleClick = () => {
-    setTextInput(searchCrit.current.value);
-    fetchData();
+  const handleClickEvent = () => {
+    setShowResults(true);
+    setUrl(`http://localhost:3000/location?id=${searchCrit.current.value}`);
   };
 
   // Take form value, assign to name
@@ -20,12 +19,11 @@ const Home = ({setTextInput, fetchData}) => {
         <Form.Control size="lg" type="text" placeholder="..." ref={searchCrit} />
       </Form.Group>
       <br />
-      <Button value="test" onClick={() => handleClick()} variant="primary">
+      <Button value="test" onClick={() => handleClickEvent()} variant="primary">
         Submit
       </Button>
       <br />
       <br />
-      <span style={{color:'white'}}>{name}</span>
     </div>
   );
 };
